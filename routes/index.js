@@ -15,7 +15,7 @@ function getImages(imageDir, callback) {
             return;
         }
         for (var i = 0; i < list.length; i++) {
-            if(fileType.indexOf(path.extname(list[i])) !== -1) {
+            if (fileType.indexOf(path.extname(list[i])) !== -1) {
                 files.push(`./img/${list[i]}`); //store the file name into the array files
             }
         }

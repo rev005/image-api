@@ -8,16 +8,16 @@ var fs = require('fs'),
 getImages(imageDir);
 var files = [];
 function getImages(imageDir, callback) {
-    var fileType = '.jpg';
+    var fileType = ['.jpeg', '.jpg', '.png', '.gif'];
     fs.readdir(imageDir, function (err, list) {
         if (err) {
             console.log(err);
             return;
         }
         for (var i = 0; i < list.length; i++) {
-            // if(path.extname(list[i]) === fileType) {
-            files.push(`./img/${list[i]}`); //store the file name into the array files
-            // }
+            if(fileType.indexOf(path.extname(list[i])) !== -1) {
+                files.push(`./img/${list[i]}`); //store the file name into the array files
+            }
         }
         console.log(files);
         // callback(err, files);

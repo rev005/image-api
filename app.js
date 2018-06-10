@@ -15,7 +15,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-// app.use('/getImg', getImg);
 
 var multerConfig = {
   storage: multer.diskStorage({
@@ -50,7 +49,7 @@ var multerConfig = {
   }
 };
 
-app.post('/uploads', multer(multerConfig).array('photo',10), function (req, res) {
+app.post('/uploads', multer(multerConfig).array('photo',500), function (req, res) {
   res.send('Complete! Check out your public/img folder.  Please note that files not encoded with an image mimetype are rejected. <a href="/">try again</a>');
 });
 

@@ -50,7 +50,16 @@ var multerConfig = {
 };
 
 app.post('/uploads', multer(multerConfig).array('photo',500), function (req, res) {
-  res.send('Complete! Check out your public/img folder.  Please note that files not encoded with an image mimetype are rejected. <a href="/">try again</a>');
+  console.log('----------');
+  console.log(req.files);
+  console.log('----------');
+
+  if(req.files.length>0){
+    res.send('passed');
+  }else{
+    res.send('failed');
+  }
+  //res.send('Complete! Check out your public/img folder.  Please note that files not encoded with an image mimetype are rejected. <a href="/">try again</a>');
 });
 
 module.exports = app;

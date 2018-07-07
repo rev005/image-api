@@ -3,7 +3,7 @@ var router = express.Router();
 
 var fs = require('fs'),
     path = require('path'),
-    imageDir = path.join(__dirname, '../public/img')
+    imageDir = path.join(__dirname, '../public/img');
 
 getImages(imageDir);
 var files = [];

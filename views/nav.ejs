@@ -5,15 +5,28 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav mr-auto">
+    <div class="navbar-nav">
       <!-- <div class="btn-group btn-group-sm mx-auto my-1" role="group" aria-label="content Types">
         <button type="button" class="btn btn-outline-success">U</button>
         <button type="button" class="btn btn-outline-warning">UA</button>
         <button type="button" class="btn btn-outline-danger">R</button>
       </div> -->
     </div>
-    <form class="form-inline mx-md-auto mx-sm-auto">
-      <input class="form-control form-control-sm mb-1" type="search" placeholder="Tags" aria-label="Search">
+
+    <div class="form-inline">
+      <select class="form-control-sm" id="setGrid">
+        <option value="10">10</option>
+        8<option value="12.5">8</option>
+        <option value="20">5</option>
+        <option value="25" selected>4</option>
+        <option value="33.333">3</option>
+        <option value="50">2</option>
+        <option value="100">1</option>
+      </select>
+    </div>
+
+    <form class="form-inline">
+      <input class="form-control-sm mb-1 ml-2" type="search" placeholder="Tags" aria-label="Search">
       <button class="btn btn-sm btn-outline-info mb-1 ml-2" type="submit">Search</button>
     </form>
   </div>

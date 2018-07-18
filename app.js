@@ -53,25 +53,25 @@ var multerConfig = {
   }
 };
 
-app.post('/uploads', multer(multerConfig).array('photo',500), function (req, res) {
+app.post('/uploads', multer(multerConfig).array('photo', 500), function (req, res) {
   console.log('----------');
   console.log(req.files);
   console.log('----------');
 
-  if(req.files.length>0){
+  if (req.files.length > 0) {
     res.send('passed');
-  }else{
+  } else {
     res.send('failed');
   }
   //res.send('Complete! Check out your public/img folder.  Please note that files not encoded with an image mimetype are rejected. <a href="/">try again</a>');
 });
 
 mongoose.Promise = bluebird
-mongoose.connect('mongodb://127.0.0.1:27017/wpixy', { useMongoClient: true})
-.then(()=> { console.log(`Succesfully Connected to the Mongodb Database  at URL : mongodb://127.0.0.1:27017/wpixy`)})
-.catch(()=> { console.log(`Error Connecting to the Mongodb Database at URL : mongodb://127.0.0.1:27017/wpixy`)})
+mongoose.connect('mongodb://127.0.0.1:27017/wpixy', { useMongoClient: true })
+  .then(() => { console.log(`Succesfully Connected to the Mongodb Database  at URL : mongodb://127.0.0.1:27017/wpixy`) })
+  .catch(() => { console.log(`Error Connecting to the Mongodb Database at URL : mongodb://127.0.0.1:27017/wpixy`) })
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "http://localhost:4200");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");

@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 var multer = require('multer');
 
 var index = require('./routes/index');
+var api = require('./routes/api.route');
 var bluebird = require('bluebird');
 var mongoose = require('mongoose');
 
@@ -17,6 +18,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
+app.use('/api', api);
 
 var multerConfig = {
   storage: multer.diskStorage({
@@ -66,8 +68,8 @@ app.post('/uploads', multer(multerConfig).array('photo',500), function (req, res
 
 mongoose.Promise = bluebird
 mongoose.connect('mongodb://127.0.0.1:27017/wpixy', { useMongoClient: true})
-.then(()=> { console.log(`Succesfully Connected to the Mongodb Database  at URL : mongodb://127.0.0.1:27017/todoapp`)})
-.catch(()=> { console.log(`Error Connecting to the Mongodb Database at URL : mongodb://127.0.0.1:27017/todoapp`)})
+.then(()=> { console.log(`Succesfully Connected to the Mongodb Database  at URL : mongodb://127.0.0.1:27017/wpixy`)})
+.catch(()=> { console.log(`Error Connecting to the Mongodb Database at URL : mongodb://127.0.0.1:27017/wpixy`)})
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "http://localhost:4200");

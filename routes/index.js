@@ -1,12 +1,13 @@
 var express = require('express');
 var router = express.Router();
 
-var fs = require('fs'),
-    path = require('path'),
-    imageDir = path.join(__dirname, '../public/img');
+var fs = require('fs');
+var path = require('path');
+var imageDir = path.join(__dirname, '../public/img');
+var files = [];
 
 getImages(imageDir);
-var files = [];
+
 function getImages(imageDir, callback) {
     var fileType = ['.jpeg', '.jpg', '.png', '.gif'];
     fs.readdir(imageDir, function (err, list) {

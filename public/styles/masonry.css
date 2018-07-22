@@ -1,0 +1,14 @@
+.grid-sizer,
+.grid-item {
+    width: 20%;
+}
+
+.grid-item {
+    padding: 3px
+    /* margin-bottom: 8px; */
+}
+
+.grid-item img {
+    width: 100%;
+    border-radius: 3px;
+}

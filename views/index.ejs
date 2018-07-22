@@ -9,6 +9,7 @@
     crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
     crossorigin="anonymous">
+  <link rel="stylesheet" href="./styles/masonry.css">
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -21,7 +22,7 @@
 </head>
 
 <body>
-  <% include nav%>
+  <% include nav %>
     <div class="container-fluid">
       <div class="form">
         <!-- IMAGE UPLOAD FORM -->
@@ -40,26 +41,10 @@
           <div class="grid-item">
             <img src="<%=imagesList[i]%>" alt="" class="">
           </div>
-          <%}%>
+          <% } %>
       </div>
 
     </div>
-    <style>
-      .grid-sizer,
-      .grid-item {
-        width: 25%;
-      }
-
-      .grid-item {
-        padding: 3px
-        /* margin-bottom: 8px; */
-      }
-
-      .grid-item img {
-        width: 100%;
-        border-radius: 3px;
-      }
-    </style>
 </body>
 
 </html>

@@ -3,6 +3,7 @@ var app = express();
 var path = require('path');
 var bodyParser = require('body-parser');
 var multer = require('multer');
+var multerConfig = require('./config/multer.config.js');
 
 var index = require('./routes/index');
 var api = require('./routes/api.route');
@@ -19,39 +20,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/api', api);
-
-var multerConfig = {
-  storage: multer.diskStorage({
-    destination: function (req, file, next) {
-      next(null, './public/img');
-    },
-
-    //specify the filename to be unique
-    filename: function (req, file, next) {
-      console.log(file);
-
-      const ext = file.mimetype.split('/')[1];
-      next(null, file.fieldname + '-' + Date.now() + '.' + ext);
-    }
-  }),
-
-  // filter out and prevent non-image files.
-  fileFilter: function (req, file, next) {
-    if (!file) {
-      next();
-    }
-
-    // only permit image mimetypes
-    const image = file.mimetype.startsWith('image/');
-    if (image) {
-      console.log('photo uploaded');
-      next(null, true);
-    } else {
-      console.log("file not supported")
-      return next();
-    }
-  }
-};
 
 app.post('/uploads', multer(multerConfig).array('photo', 500), function (req, res) {
   console.log('----------');

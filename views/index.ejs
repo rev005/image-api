@@ -19,6 +19,7 @@
   <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
   <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
   <script src="./js/main.js"></script>
+  <script src="./js/uploadEvent.js"></script>
 </head>
 
 <body>
@@ -26,10 +27,10 @@
     <div class="container-fluid">
       <div class="form">
         <!-- IMAGE UPLOAD FORM -->
-        <form action="/uploads" enctype="multipart/form-data" method="POST">
-          <!-- <form class='lol'> -->
-          <input id="uImg" type="file" name="photo" multiple/>
-          <button type="submit" class="btn btn-default">Submit</button>
+        <!-- <form action="/uploads" enctype="multipart/form-data" method="POST"> -->
+        <form id="uploadForm">
+          <input id="uploadImage" type="file" name="photo" multiple/>
+          <button id="uploadSubmit" type="submit" class="btn btn-default">Submit</button>
         </form>
       </div>
 

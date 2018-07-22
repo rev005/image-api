@@ -8,6 +8,12 @@ $(document).ready(function () {
         $('.grid-sizer,.grid-item').css('width', percentage + '%');
         gridReset();
     });
+
+    $('#uploadSubmit').on('click', function (e) {
+        e.preventDefault();
+        console.log('Submit clicked');
+        uploadImageAjax();
+    });
 });
 
 function gridReset() {

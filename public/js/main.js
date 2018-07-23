@@ -14,6 +14,8 @@ $(document).ready(function () {
         console.log('Submit clicked');
         uploadImageAjax();
     });
+
+    imageGetMongo();
 });
 
 function gridReset() {

@@ -6,7 +6,7 @@ function uploadImageAjax() {
     $.ajax({
         type: "POST",
         enctype: 'multipart/form-data',
-        url: "/uploads",
+        url: "api/uploads",
         data: data,
         processData: false, //prevent jQuery from automatically transforming the data into a query string
         contentType: false,
@@ -25,20 +25,12 @@ function uploadImageAjax() {
 }
 
 function imagePostMongo(imageObj) {
-    var data = {
-        url: imageObj.url,
-        tag: imageObj.tag
-    };
 
     $.ajax({
         type: "POST",
         url: "/api/images",
-        data: data,
-        success: (data) => {
-            //$("#listFiles").text(data);
-        },
-        error: (e) => {
-            //$("#listFiles").text(e.responseText);
-        }
+        data: imageObj,
+        success: (data) => {},
+        error: (e) => {}
     });
 }

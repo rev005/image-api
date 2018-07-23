@@ -21,18 +21,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/api', api);
 
-app.post('/uploads', multer(multerConfig).array('photo', 500), function (req, res) {
-  console.log('----------');
-  console.log(req.files);
-  console.log('----------');
-
-  if (req.files.length > 0) {
-    res.send(req.files);
-  } else {
-    res.send('failed');
-  }
-});
-
 mongoose.Promise = bluebird
 mongoose.connect('mongodb://127.0.0.1:27017/wpixy', { useMongoClient: true })
   .then(() => { console.log(`Succesfully Connected to the Mongodb Database  at URL : mongodb://127.0.0.1:27017/wpixy`) })

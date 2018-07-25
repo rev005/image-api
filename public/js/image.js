@@ -1,4 +1,4 @@
-function uploadImageAjax() {
+function uploadImage() {
     // Get form
     var form = $('#uploadForm')[0];
     var data = new FormData(form);
@@ -43,16 +43,16 @@ function imageGetMongo() {
             console.log(data);
 
             var imgObj = data.data.docs;
-            for(var x=0; x<imgObj.length; x++){
+            for (var x = 0; x < imgObj.length; x++) {
                 var imgUrl = imgObj[x].url;
-                var imgHtml = `<div class="grid-item">
-                                <img src="./img/${imgUrl}" alt="" class="">
-                            </div>`;
+                var imgHtml = ` <div class="grid-item">
+                                    <img src="./img/${imgUrl}" alt="" class="">
+                                </div>`;
 
                 $('.grid').append(imgHtml);
             }
 
-            setTimeout(function(){
+            setTimeout(function () {
                 console.log('Timer activated');
                 gridReset();
             }, 1000);

@@ -1,6 +1,14 @@
 var express = require('express');
 var router = express.Router();
 
+/* GET home page. */
+router.get('/', function (req, res, next) {
+    res.render('index');
+});
+
+module.exports = router;
+
+
 // var fs = require('fs');
 // var path = require('path');
 // var imageDir = path.join(__dirname, '../public/img');
@@ -24,10 +32,3 @@ var router = express.Router();
 //         // callback(err, files);
 //     });
 // }
-
-/* GET home page. */
-router.get('/', function (req, res, next) {
-    res.render('index');
-});
-
-module.exports = router;

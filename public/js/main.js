@@ -12,7 +12,7 @@ $(document).ready(function () {
     $('#uploadSubmit').on('click', function (e) {
         e.preventDefault();
         console.log('Submit clicked');
-        uploadImageAjax();
+        uploadImage();
     });
 
     imageGetMongo();

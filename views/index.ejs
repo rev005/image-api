@@ -25,21 +25,11 @@
 <body>
   <% include nav %>
     <div class="container-fluid">
-      <div class="form">
-        <!-- IMAGE UPLOAD FORM -->
-        <!-- <form action="/uploads" enctype="multipart/form-data" method="POST"> -->
-        <form id="uploadForm">
-          <input id="uploadImage" type="file" name="photo" multiple/>
-          <button id="uploadSubmit" type="submit" class="btn btn-default">Submit</button>
-        </form>
-      </div>
-
-      <hr>
-
       <div class="grid">
         <div class="grid-sizer"></div>
       </div>
     </div>
+  <% include alert %>
 </body>
 
 </html>

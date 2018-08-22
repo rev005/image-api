@@ -15,6 +15,11 @@ $(document).ready(function () {
         uploadImage();
     });
 
+    $('#upload').on('click', function (e) {
+        e.preventDefault();
+        $('#uploadImage').trigger('click');
+    });
+
     imageGetMongo();
 });
 

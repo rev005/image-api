@@ -19,10 +19,10 @@ exports.createImage = async function (image) {
     // Creating a new Mongoose Object by using the new keyword
     var newImage = new imageModel({
         url: image.url,
-        tag: image.tag,
+        tags: image.tags,
         date: new Date()
     });
-
+    
     try {
         // Saving the Image to Mongo
         var saveImage = await newImage.save();

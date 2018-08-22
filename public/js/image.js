@@ -15,7 +15,8 @@ function uploadImage() {
             console.log(data);
             $(data).each((i, e) => {
                 var imageObj = {
-                    url: e.filename //TODO add other data to store later.
+                    url: e.filename, //TODO add other data to store later.
+                    tags: ["one", "two"]
                 };
                 imagePostMongo(imageObj);
             });
@@ -25,6 +26,7 @@ function uploadImage() {
 }
 
 function imagePostMongo(imageObj) {
+    console.log(imageObj);
     $.ajax({
         type: "POST",
         url: "/api/images",

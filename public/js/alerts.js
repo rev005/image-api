@@ -1,3 +1,4 @@
-function showAlert(msg){
-    msg.Message
-}
+// function showAlert(msg){
+//     $('.alertBox .alertMsg').text(msg);
+//     $('.alertBox').show();
+// }

@@ -41,6 +41,10 @@ function imageGetMongo() {
         type: "GET",
         url: "/api/images",
         async: false,
+        data:{
+          page: 1,
+          limit:100
+        },
         success: (data) => {
             console.log(data);
 

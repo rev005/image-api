@@ -7,11 +7,13 @@ _this = this
 // Async Controller function to get the To do List
 exports.getImages = async function(req, res, next){
     // Check the existence of the query parameters, If the exists doesn't exists assign a default value
-    var page = req.query.page ? req.query.page : 1
-    var limit = req.query.limit ? req.query.limit : 1000;
+    let page = req.query.page ? req.query.page : 1;
+    let limit = req.query.limit ? req.query.limit : 1000;
+    page = parseInt(page);
+    limit = parseInt(limit);
 
     try{
-        var images = await ImageService.getImages({}, page, limit)
+        let images = await ImageService.getImages({}, page, limit)
         // Return the images url list with the appropriate HTTP Status Code and Message.
         return res.status(200).json({status: 200, data: images, message: "Succesfully Recieved Images"});
 

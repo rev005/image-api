@@ -63,3 +63,4 @@ package-lock.json
 
 img/
 .idea/
+.vscode/launch.json

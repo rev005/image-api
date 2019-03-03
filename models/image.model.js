@@ -4,6 +4,7 @@ var mongoosePaginate = require('mongoose-paginate');
 
 var imagesSchema = new mongoose.Schema({
     url: String,
+    pageUrls: Array,
     tags: Array,
     date: Date
 }); //TODO : Add filetype etc

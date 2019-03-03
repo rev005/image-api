@@ -27,6 +27,7 @@ exports.createImage = async function(req, res, next){
     // Req.Body contains the form submit values.
     var image = {
         url: req.body.url,
+        pageUrls: req.body['pageUrls[]'],
         tags: req.body['tags[]']
     };
 

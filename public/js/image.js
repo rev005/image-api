@@ -13,13 +13,13 @@ function uploadImage() {
         cache: false,
         success: (data) => {
             console.log(data);
-            $(data).each((i, e) => {
-                var imageObj = {
-                    url: e.filename, //TODO add other data to store later.
-                    tags: ["one", "two"]
-                };
-                imagePostMongo(imageObj);
-            });
+            let pageUrls = data.map((x) =>  x.filename);
+            let imageObj = {
+                url: pageUrls[0],
+                pageUrls: pageUrls,
+                tags: ["test1", "test2"]
+            };
+            imagePostMongo(imageObj);
         },
         error: (e) => {}
     });
@@ -51,8 +51,9 @@ function imageGetMongo() {
             var imgObj = data.data.docs;
             for (var x = 0; x < imgObj.length; x++) {
                 var imgUrl = imgObj[x].url;
+                let bookId = imgObj[x]._id;
                 var imgHtml = ` <div class="grid-item">
-                                    <img src="./img/${imgUrl}" alt="" class="">
+                                    <img src="./img/${imgUrl}" alt="No Image" class="" data-id="${bookId}">
                                 </div>`;
 
                 $('.grid').append(imgHtml);

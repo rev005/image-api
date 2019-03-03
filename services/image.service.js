@@ -19,17 +19,16 @@ exports.createImage = async function (image) {
     // Creating a new Mongoose Object by using the new keyword
     var newImage = new imageModel({
         url: image.url,
+        pageUrls: image.pageUrls,
         tags: image.tags,
         date: new Date()
     });
     
-    try {
-        // Saving the Image to Mongo
+    try { // Saving the Image to Mongo
         var saveImage = await newImage.save();
         return saveImage;
 
-    } catch (e) {
-        // return a Error message describing the reason
+    } catch (e) { // return a Error message describing the reason
         throw Error("Error while Creating Image");
     }
 }

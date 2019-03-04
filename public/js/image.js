@@ -48,22 +48,33 @@ function imageGetMongo() {
         success: (data) => {
             console.log(data);
 
+            myApp.images = data.data.docs;
             var imgObj = data.data.docs;
             for (var x = 0; x < imgObj.length; x++) {
                 var imgUrl = imgObj[x].url;
                 let bookId = imgObj[x]._id;
-                var imgHtml = ` <div class="grid-item">
-                                    <img src="./img/${imgUrl}" alt="No Image" class="" data-id="${bookId}">
-                                </div>`;
+                let booksList = `
+                                    <div class='col-lg-2 col-md-3 col-sm-6'>
+                                        <img src="./img/${imgUrl}" alt="No Image" class="bookCover img-fluid img-thumbnail" data-id="${bookId}">
+                                    </div>
+                                `;
 
-                $('.grid').append(imgHtml);
+                $('.booksList').append(booksList);
             }
-
-            setTimeout(function () {
-                console.log('Timer activated');
-                gridReset();
-            }, 1000);
         },
         error: (e) => {}
     });
 }
+
+// function getPages(pages) {
+//     $.ajax({
+//         type: "GET",
+//         url: "/pages",
+//         data:pages,
+//         success: (data) => {
+//             console.log(data);
+//         },
+//         error: (e) => {}
+//     });
+// }
+

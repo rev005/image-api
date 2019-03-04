@@ -1,14 +1,6 @@
+var myApp = {};
+
 $(document).ready(function () {
-    $('.grid').imagesLoaded(function () {
-        gridReset(); // init Masonry after all images have loaded.
-    });
-
-    $('#setGrid').on('change', function () {
-        var percentage = $(this).val();
-        $('.grid-sizer,.grid-item').css('width', percentage + '%');
-        gridReset();
-    });
-
     $('#uploadSubmit').on('click', function (e) {
         e.preventDefault();
         console.log('Submit clicked');
@@ -20,26 +12,22 @@ $(document).ready(function () {
         $('#uploadImage').trigger('click');
     });
 
+    $('body').on('click', '.bookCover', function(){
+        let bookId = $(this).attr('data-id');
+        let book = Object.values(myApp.images).find(x => x._id===bookId);
+        let pages = book.pageUrls;
+        console.log(pages);
+
+        var test='';
+        pages.forEach(page => {
+            let html = `<div class='col-lg-2 col-md-3 col-sm-6'>
+                            <img src="./img/${page}" alt="No Image" class="bookPage img-fluid img-thumbnail" data-id="${bookId}">
+                        </div>`
+            test += html;
+        });
+
+        $('.booksList').html(test);
+    });
+
     imageGetMongo();
 });
-
-function gridReset() {
-    $('.grid').masonry({
-        itemSelector: '.grid-item',
-        columnWidth: '.grid-sizer',
-        percentPosition: true
-    });
-}
-
-
-// init Masonry
-// var $grid = $('.grid').masonry({
-//     itemSelector: '.grid-item',
-//     columnWidth: '.grid-sizer',
-//     percentPosition: true
-// });
-
-// // layout Masonry after each image loads
-// $grid.imagesLoaded().progress(function () {
-//     $grid.masonry('layout');
-// });

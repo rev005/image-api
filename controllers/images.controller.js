@@ -28,6 +28,7 @@ exports.createImage = async function(req, res, next){
     var image = {
         url: req.body.url,
         pageUrls: req.body['pageUrls[]'],
+        title: req.body.title,
         tags: req.body['tags[]']
     };
 

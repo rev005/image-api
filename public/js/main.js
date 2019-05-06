@@ -13,20 +13,21 @@ $(document).ready(function () {
     });
 
     $('body').on('click', '.bookCover', function(){
-        let bookId = $(this).attr('data-id');
-        let book = Object.values(myApp.images).find(x => x._id===bookId);
-        let pages = book.pageUrls;
-        console.log(pages);
+        // location.replace('/pages');
+        // let bookId = $(this).attr('data-id');
+        // let book = Object.values(myApp.images).find(x => x._id===bookId);
+        // let pages = book.pageUrls;
+        // console.log(pages);
 
-        var test='';
-        pages.forEach(page => {
-            let html = `<div class='col-lg-2 col-md-3 col-sm-6'>
-                            <img src="./img/${page}" alt="No Image" class="bookPage img-fluid img-thumbnail" data-id="${bookId}">
-                        </div>`
-            test += html;
-        });
+        // var test='';
+        // pages.forEach(page => {
+        //     let html = `<div class='col-lg-2 col-md-3 col-sm-6'>
+        //                     <img src="./img/${page}" alt="No Image" class="bookPage img-fluid img-thumbnail" data-id="${bookId}">
+        //                 </div>`
+        //     test += html;
+        // });
 
-        $('.booksList').html(test);
+        // $('.booksList').html(test);
     });
 
     imageGetMongo();

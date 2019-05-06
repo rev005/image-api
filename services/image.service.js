@@ -20,6 +20,7 @@ exports.createImage = async function (image) {
     var newImage = new imageModel({
         url: image.url,
         pageUrls: image.pageUrls,
+        title: image.title,
         tags: image.tags,
         date: new Date()
     });

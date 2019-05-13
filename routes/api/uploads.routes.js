@@ -15,5 +15,4 @@ router.post('/', multer(multerConfig).array('photo', 500), function (req, res) {
     }
 });
 
-// Export the Router
 module.exports = router;

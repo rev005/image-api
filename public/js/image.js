@@ -55,19 +55,34 @@ function imageGetMongo() {
             myApp.images = data.data.docs;
             var imgObj = data.data.docs;
             for (var x = 0; x < imgObj.length; x++) {
-                var imgUrl = imgObj[x].url;
-                let bookId = imgObj[x]._id;
-                let booksList = `
-                                    <div class='col-lg-2 col-md-3 col-sm-6'>
-                                        <img src="./img/${imgUrl}" alt="No Image" class="bookCover img-fluid img-thumbnail" data-id="${bookId}">
-                                    </div>
-                                `;
+                // var imgUrl = imgObj[x].url;
+                // let bookId = imgObj[x]._id;
+                // let test = `
+                //                     <div class='col-lg-2 col-md-3 col-sm-6'>
+                //                         <img src="./img/${imgUrl}" alt="No Image" class="bookCover img-fluid img-thumbnail" data-id="${bookId}">
+                //                     </div>
+                //                 `;
+
+                let booksList = imgTemplate(imgObj[x]);
 
                 $('.booksList').append(booksList);
             }
         },
         error: (e) => {}
     });
+}
+
+function imgTemplate(imgObj){
+    let imgUrl = imgObj.url;
+    let bookId = imgObj._id;
+    let title = imgObj.title;
+
+    return `<div class="card col-lg-2 col-md-3 col-sm-6">
+                <img class="card-img-top bookCover" data-id="${bookId}" src="./img/${imgUrl}" alt="Image cap">
+                <div class="card-body">
+                    <p class="card-text text-center">${title}</p>
+                </div>
+            </div>`
 }
 
 function getPages(pages) {
